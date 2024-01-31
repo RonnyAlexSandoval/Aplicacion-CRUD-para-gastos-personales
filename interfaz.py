@@ -131,11 +131,14 @@ def instruccionesCRUD():
 root=Tk()
 root.title("Registro de gastos diarios")
 root.config(bg=grisOscuro)
-root.resizable(False,False)   
+root.resizable(False,False)
+root.iconbitmap("billetera.ico")
+
 
 #Barra de menú
 barraMenu=Menu(root)
 root.config(menu=barraMenu)
+
 
 #submenu de archivo
 menuArchivo=Menu(barraMenu, tearoff=0)
@@ -264,6 +267,9 @@ def createReg():
 
     except sqlite3.OperationalError:
         messagebox.showerror("Base de datos no encontrada", "Aun no se ha conectado con ninguna base de datos. Ingrese al menú 'Archivo', en la opción 'Conectar BD' y seleccione una base de datos. O seleccione la opción 'Nueva BD' para crear una nueva base de datos")
+
+    except:
+        messagebox.showerror("Error de datos", "Los campo 'Id' y 'Valor' solo admiten la entrada de datos numéricos")
 
 
 
